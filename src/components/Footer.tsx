@@ -1,10 +1,13 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const footerLinks = [
   {
     title: "Home",
+    href: "/",
     links: [
       { label: "How?", href: "/#how?" },
       { label: "Focusing Dataset", href: "/#focusing-dataset" },
@@ -14,6 +17,7 @@ const footerLinks = [
   },
   {
     title: "PEPs Guide",
+    href: "/peps-guide",
     links: [
       { label: "Introduction", href: "/" },
       { label: "Defining: Who is PEPs?", href: "/" },
@@ -23,15 +27,18 @@ const footerLinks = [
   },
   {
     title: "Data Catalog",
+    href: "/data-catalog",
     links: [],
   },
   {
     title: "Related Resources",
+    href: "/related-resources",
     links: [],
   },
 ];
 
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className="bg-black-01 text-white py-10 md:py-16 px-4 md:px-16">
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
@@ -48,13 +55,18 @@ const Footer = () => {
         <div className="md:flex hidden md:gap-16 gap-[7px] flex-1 justify-between">
           {footerLinks.map((section) => (
             <div key={section.title}>
-              <p className="text-b5 font-bold mb-3">{section.title}</p>
+              <p
+                className="text-b5 font-bold mb-3 hover:text-orange-03 cursor-pointer"
+                onClick={() => router.push(`${section.href}`)}
+              >
+                {section.title}
+              </p>
               <ul className="flex flex-col gap-1">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-b5 text-white hover:underline transition-colors"
+                      className="text-b5 text-white hover:text-orange-03 transition-colors"
                     >
                       {link.label}
                     </Link>

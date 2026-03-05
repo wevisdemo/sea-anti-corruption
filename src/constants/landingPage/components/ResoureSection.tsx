@@ -60,9 +60,9 @@ const ResoureSection = async () => {
                     </svg>
                     <span className="flex gap-1">
                       Categories:
-                      <p className="text-b7 text-black">
+                      <span className="text-b7 text-black">
                         {resource.categories}
-                      </p>
+                      </span>
                     </span>
                   </div>
                 )}
@@ -89,7 +89,7 @@ const ResoureSection = async () => {
                     </svg>
                     <span className="flex gap-1">
                       Countries:
-                      <p className="text-b7 text-black">{resource.countries}</p>
+                      <span className="text-b7 text-black">{resource.countries}</span>
                     </span>
                   </div>
                 )}
@@ -124,7 +124,7 @@ const ResoureSection = async () => {
                     </svg>
                     <span className="flex gap-1">
                       Languages:
-                      <p className="text-b7 text-black">{resource.languages}</p>
+                      <span className="text-b7 text-black">{resource.languages}</span>
                     </span>
                   </div>
                 )}
