@@ -17,7 +17,7 @@ const GroupSection = () => {
       id="sea-acn-open-data-focus-group"
     >
       <h2 className="font-bold text-blue-01 text-h5">
-        SEA-CAN’s Open Data Focus Group
+        SEA-CAN's Open Data Focus Group
       </h2>
 
       <div className="flex flex-col gap-2 md:flex-row">
@@ -44,7 +44,7 @@ const GroupSection = () => {
             serves as the regional coordination and knowledge platform.
             <br />
             <br />
-            One of the network’s core areas—Open Data—builds on the earlier
+            One of the network's core areas—Open Data—builds on the earlier
             study titled “Building the Capacity of Southeast Asian Civil Society
             on Anti-Corruption through the Use of Data.” Currently, the Open
             Data Working Group is expanding its work on Politically Exposed
