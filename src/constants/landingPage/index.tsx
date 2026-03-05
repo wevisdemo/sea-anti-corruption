@@ -35,12 +35,12 @@ const LandingPage = () => {
 
       <div className="flex flex-1">
         <div className="hidden lg:block w-0 overflow-visible">
-          <nav className="sticky top-16 flex flex-col gap-2.5 pl-8 pt-16">
+          <nav className="sticky top-16 flex flex-col gap-1 pl-8 pt-16">
             {sidebarLinks.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="whitespace-nowrap text-black-01 text-b5 font-bold hover:text-blue-01"
+                className="whitespace-nowrap text-black-01 text-b5 font-bold w-fit hover:bg-blue-04 py-1 px-2 "
               >
                 {link}
               </a>
