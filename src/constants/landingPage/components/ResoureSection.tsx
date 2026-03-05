@@ -20,19 +20,17 @@ const ResoureSection = async () => {
             key={index}
             className="flex w-[232px] shrink-0 flex-col overflow-hidden rounded-xl border border-background-01 bg-white snap-start"
           >
-            {resource.imageUrl && (
-              <div className="relative h-[154.6666717529297px] w-full">
-                <Image
-                  src={resource.imageUrl}
-                  alt={resource.title || ""}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            )}
+            <div className="relative h-[154.6666717529297px] w-full">
+              <Image
+                src={resource.imageUrl || "/img/img-placeholder.svg"}
+                alt={resource.title || ""}
+                fill
+                className="object-cover"
+              />
+            </div>
 
             <div className="flex flex-1 flex-col gap-2 p-4 bg-[#D9D9D9]">
-              <h3 className="text-b5 font-bold text-black-01">
+              <h3 className="text-b5 font-bold text-black-01 line-clamp-3">
                 {resource.title}
               </h3>
 
@@ -89,7 +87,9 @@ const ResoureSection = async () => {
                     </svg>
                     <span className="flex gap-1">
                       Countries:
-                      <span className="text-b7 text-black">{resource.countries}</span>
+                      <span className="text-b7 text-black">
+                        {resource.countries}
+                      </span>
                     </span>
                   </div>
                 )}
@@ -124,7 +124,9 @@ const ResoureSection = async () => {
                     </svg>
                     <span className="flex gap-1">
                       Languages:
-                      <span className="text-b7 text-black">{resource.languages}</span>
+                      <span className="text-b7 text-black">
+                        {resource.languages}
+                      </span>
                     </span>
                   </div>
                 )}
