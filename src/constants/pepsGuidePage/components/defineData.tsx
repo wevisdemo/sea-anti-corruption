@@ -691,3 +691,163 @@ export const dataStandard: {
     ],
   },
 ];
+
+export const referencePepsData: PepCategory[] = [
+  {
+    id: "foreign-peps",
+    title: "Foreign PEPs",
+    description:
+      "Individuals who are or have been entrusted with prominent public functions by a foreign country; for example heads of states or of government, senior politicians, senior judicial or military officials, senior executives of state owned corporations, important political party officials.",
+    countries: [
+      {
+        country: "Indonesia",
+        content: (
+          <>
+            <p>
+              Despite being assessed as “largely compliant” in the{" "}
+              <a
+                href="https://www.fatf-gafi.org/en/publications/Mutualevaluations/Indonesia-fur-2025.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                2025 FATF Mutual Evaluation Follow-Up Report
+              </a>
+              , Indonesia continues to face a critical structural weakness in
+              its anti–money laundering and integrity systems, which is the
+              absence of a single, authoritative, and comprehensive source of
+              Politically Exposed Persons (PEP) data. This weakness persists
+              even though clear regulatory definitions exist across{" "}
+              <a
+                href="https://ojk.go.id/id/regulasi/Documents/Pages/POJK-APU-PPT-dan-PPPSPM-di-SJK/POJK%208%20TAHUN%202023%20-%20PENERAPAN%20PROGRAM%20APU%20PPT%20DAN%20PPSPM%20DI%20SJK.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                OJK
+              </a>
+              (Indonesia Financial Services Authority),{" "}
+              <a
+                href="https://ppid.ppatk.go.id/wp-content/uploads/2025/07/Peraturan-PPATK-Nomor-11-Tahun-2020-Tentang-Tata-Cara-Pemanfaatan-Aplikasi-Politically-Exposed-Person.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                PPATK
+              </a>{" "}
+              (Indonesia’s Financial Intelligence Unit),{" "}
+              <a
+                href="https://www.bi.go.id/id/publikasi/peraturan/Pages/pbi_122010.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01"
+              >
+                Bank Indonesia
+              </a>{" "}
+              (Central Bank of Indonesia), and the{" "}
+              <a
+                href="https://jdih-old.kemenkeu.go.id/in/dokumen/peraturan/2248e46c-7d1a-4f3a-8770-4a46b5f451cf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                Ministry of Finance
+              </a>
+              . In practice, the country does not yet possess a unified national
+              PEP registry that consolidates all relevant categories of PEPs as
+              envisaged by FATF.
+            </p>
+            <p className="mt-3">
+              This operational definition is drawn from Indonesian laws and
+              regulations, notably Bank Indonesia Regulation{" "}
+              <a
+                href="https://www.bi.go.id/id/publikasi/peraturan/Pages/pbi_122010.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01"
+              >
+                (PBI 12/20/2010)
+              </a>
+              , OJK regulations and guidance{" "}
+              <a
+                href="https://ojk.go.id/apu-ppt/id/peraturan/seojk/Pages/seojk-11-2021.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                (SEOJK 11/2021
+              </a>
+              ;
+              <a
+                href="https://ojk.go.id/id/regulasi/Documents/Pages/POJK-APU-PPT-dan-PPPSPM-di-SJK/POJK%208%20TAHUN%202023%20-%20PENERAPAN%20PROGRAM%20APU%20PPT%20DAN%20PPSPM%20DI%20SJK.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                POJK No. 8/2023)
+              </a>
+              ,
+              <a
+                href="https://ppid.ppatk.go.id/wp-content/uploads/2025/07/Peraturan-PPATK-Nomor-11-Tahun-2020-Tentang-Tata-Cara-Pemanfaatan-Aplikasi-Politically-Exposed-Person.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                PPATK
+              </a>
+              regulations, and Ministry of Finance rules{" "}
+              <a
+                href="https://jdih-old.kemenkeu.go.id/in/dokumen/peraturan/2248e46c-7d1a-4f3a-8770-4a46b5f451cf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                (PMK 30/2010)
+              </a>
+            </p>
+          </>
+        ),
+      },
+      {
+        country: "Malaysia",
+        content: (
+          <>
+            <p>
+              Malaysia’s central bank and financial regulatory body, Bank Negara
+              Malaysia provides guidance on customer due diligence (CDD) on PEPs
+              through the policy documents such as{" "}
+              <a
+                href="https://amlcft.bnm.gov.my/documents/6312201/6321409/AMLCFT+and+Targeted+Financial+Sanctions+for+Financial+Institutions+%28AML_CFT+and+TFS+for+FIs%29.pdf/bea5d16c-ac8d-62ac-e755-91223e236c51?t=1646233875584"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                Anti-Money Laundering,Countering Financing of Terrorism and
+                Targeted Financial Sanctions for Financial Institutions (AML/CFT
+                and TFS for FIs)
+              </a>
+              . Additionally, close business associates are also defined in the
+              Companies Act 2016.
+            </p>
+          </>
+        ),
+      },
+      {
+        country: "Thailand",
+        content: (
+          <>
+            <p>
+              The Association of Thai Securities Companies use the National
+              Anti-Corruption Commission (NACC) Position list for asset
+              declaration as a reference to identify PEPs
+            </p>
+
+            <p className="mt-3">
+              Ministerial Regulation on Customer Due Diligence, B.E. 2563 (2020)
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+];
