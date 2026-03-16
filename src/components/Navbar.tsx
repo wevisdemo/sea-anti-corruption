@@ -3,16 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
-  { href: "/", label: "PEPs Guide" },
-  { href: "/", label: "Data Catalog" },
-  { href: "/", label: "Related Resources" },
+  { href: "/peps-guide", label: "PEPs Guide" },
+  { href: "/data-catalog", label: "Data Catalog" },
+  { href: "/related-resources", label: "Related Resources" },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const currentPath = usePathname();
+  const router = useRouter();
   return (
     <>
       <div className="bg-orange-01 md:px-8 px-4 flex items-center justify-between h-[58px] w-full sticky top-0 z-50">
@@ -21,12 +23,15 @@ const Navbar = () => {
           alt="logo"
           width={338.9416809082031}
           height={25.39}
-          className="w-[200px] md:w-[338.9416809082031px] h-[14.98px] md:h-[25.39px] md:mt-2"
+          className="w-[200px] md:w-[338.9416809082031px] h-[14.98px] md:h-[25.39px] md:mt-2 cursor-pointer"
+          onClick={() => router.push("/")}
         />
         <div className="hidden items-center gap-8 px-4 md:flex">
           {navLinks.map((link) => (
             <Link key={link.label} href={link.href}>
-              <p className="text-white text-h11 font-bold hover:underline">
+              <p
+                className={`text-white text-h11 font-bold hover:underline ${link.href === currentPath ? "underline" : ""}`}
+              >
                 {link.label}
               </p>
             </Link>
