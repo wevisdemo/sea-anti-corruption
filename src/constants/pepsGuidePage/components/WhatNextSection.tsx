@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 const WhatNextSection = () => {
+  const router = useRouter();
   return (
     <div
       className="flex flex-col gap-4 max-w-[776px] md:p-8 md:mt-16 p-4 mt-2"
@@ -18,7 +20,12 @@ const WhatNextSection = () => {
             View the full report
           </p>
         </div>
-        <div className=" flex flex-col gap-2.5 rounded-2xl p-6 bg-background-01 hover:bg-orange-04 cursor-pointer items-center justify-center">
+        <div
+          onClick={() => {
+            router.push("/data-catalog");
+          }}
+          className=" flex flex-col gap-2.5 rounded-2xl p-6 bg-background-01 hover:bg-orange-04 cursor-pointer items-center justify-center"
+        >
           <Image src="/icons/stack.svg" alt="pep" width={120} height={120} />
           <p className="text-b5 font-bold text-black-01 text-center">
             What to see the dataset you can use?

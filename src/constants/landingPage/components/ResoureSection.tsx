@@ -1,8 +1,17 @@
+"use client";
 import Image from "next/image";
 import { getDataResoure } from "@/src/lib/getDataResoure";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { RelatedResources } from "@/src/services/type";
 
-const ResoureSection = async () => {
-  const resources = await getDataResoure();
+const ResoureSection = () => {
+  const router = useRouter();
+  const [resources, setResources] = useState<RelatedResources[]>([]);
+
+  useEffect(() => {
+    getDataResoure().then(setResources);
+  }, []);
 
   return (
     <div
@@ -26,6 +35,10 @@ const ResoureSection = async () => {
                 alt={resource.title || ""}
                 fill
                 className="object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = "/img/img-placeholder.svg";
+                }}
+                loading="lazy"
               />
             </div>
 
@@ -163,7 +176,12 @@ const ResoureSection = async () => {
         ))}
       </div>
 
-      <p className="text-b5 font-bold text-orange-01 text-end underline cursor-pointer">
+      <p
+        className="text-b5 font-bold text-orange-01 text-end underline cursor-pointer"
+        onClick={() => {
+          router.push("/related-resources");
+        }}
+      >
         See All
       </p>
     </div>

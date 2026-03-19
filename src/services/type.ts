@@ -9,6 +9,17 @@ export interface RelatedResources {
   linkUrl?: string;
 }
 
+export interface RelatedResourcesFilter {
+  publicationDate?: string;
+  title?: string;
+  description?: string;
+  countries?: string[];
+  languages?: string[];
+  categories?: string[];
+  imageUrl?: string;
+  linkUrl?: string;
+}
+
 export interface Dataset {
   title?: string;
   categories?: string[];

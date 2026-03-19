@@ -1,18 +1,18 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
-import { Dataset } from "@/src/services/type";
+import { RelatedResourcesFilter } from "@/src/services/type";
 import FilterSidebar, { FilterSection } from "./FilterSidebar";
 import Image from "next/image";
 import Link from "next/link";
 import WhatNextSection from "./WhatNextSection";
 
 function getFilterOptions(
-  datasets: Dataset[],
-  extractor: (item: Dataset) => string[],
+  relatedResources: RelatedResourcesFilter[],
+  extractor: (item: RelatedResourcesFilter) => string[],
 ): { label: string; count: number }[] {
   const counts: Record<string, number> = {};
-  datasets.forEach((item) => {
+  relatedResources.forEach((item) => {
     extractor(item).forEach((v) => {
       const trimmed = v.trim();
       if (trimmed) {
@@ -25,107 +25,170 @@ function getFilterOptions(
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
-const CatalogCard = ({ item }: { item: Dataset }) => (
-  <div className="rounded-lg border border-background-01 overflow-hidden">
-    <div className="flex flex-col gap-2 bg-background-01 px-6 pt-4 pb-2">
-      <h3 className="font-bold text-black-01 text-b5">{item.title}</h3>
-      <div className="flex flex-wrap gap-x-6 gap-y-1 text-b7 text-black-01">
-        <span className="flex items-center gap-1">
-          <Image
-            src="/icons/folder.svg"
-            alt="category"
-            width={12}
-            height={12}
-          />
-          <b className="font-normal text-[#60696F]">Categories:</b>{" "}
-          {item.categories?.join(" , ")}
-        </span>
-        <span className="flex items-center gap-1">
-          <Image
-            src="/icons/data-definition.svg"
-            alt="data type"
-            width={12}
-            height={12}
-          />
-          <b className="font-normal text-[#60696F]">Data Type:</b>{" "}
-          {item.dataType?.join(" , ")}
-        </span>
-      </div>
-      <div className="flex flex-wrap gap-x-6 gap-y-1 text-b7 text-black-01">
-        <span className="flex items-center gap-1">
-          <Image
-            src="/icons/publisher.svg"
-            alt="publisher"
-            width={12}
-            height={12}
-          />
-          <b className="font-normal text-[#60696F]">Publisher:</b>{" "}
-          {item.publisher}
-        </span>
-        <span className="flex items-center gap-1">
-          <Image
-            src="/icons/location.svg"
-            alt="countries"
-            width={12}
-            height={12}
-          />
-          <b className="font-normal text-[#60696F]">Countries:</b>{" "}
-          {item.countries}
-        </span>
-        <span className="flex items-center gap-1">
-          <Image
-            src="/icons/wikis.svg"
-            alt="languages"
-            width={12}
-            height={12}
-          />
-          <b className="font-normal text-[#60696F]">Languages:</b>{" "}
-          {item.languages?.join(" , ")}
-        </span>
-      </div>
-    </div>
-    <div className="border-t border-background-01 p-4 flex flex-col gap-3">
-      <p className="text-b7 text-black-01">{item.description}</p>
-      <Link
-        href={item.url || ""}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-orange-01 text-b7 font-bold underline flex items-center gap-1 hover:underline w-fit"
-      >
-        {item.url || ""}
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#000"
-          strokeWidth="2"
-        >
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-          <polyline points="15 3 21 3 21 9" />
-          <line x1="10" y1="14" x2="21" y2="3" />
-        </svg>
-      </Link>
-    </div>
-  </div>
-);
-
 interface DataCatalogClientProps {
-  datasets: Dataset[];
+  relatedResources: RelatedResourcesFilter[];
 }
 
-const DataCatalogClient = ({ datasets }: DataCatalogClientProps) => {
+const CatalogCard = ({ item }: { item: RelatedResourcesFilter }) => {
+  const categories = item.categories?.join(" , ");
+  const countries = item.countries?.join(" , ");
+  const languages = item.languages?.join(" , ");
+  return (
+    <div
+      key={item.title || ""}
+      className="flex w-[232px] shrink-0 flex-col overflow-hidden rounded-xl border border-background-01 bg-white snap-start"
+    >
+      <div className="relative h-[154.6666717529297px] w-full">
+        <Image
+          src={item.imageUrl || "/img/img-placeholder.svg"}
+          alt={item.title || ""}
+          fill
+          className="object-cover"
+          onError={(e) => {
+            e.currentTarget.src = "/img/img-placeholder.svg";
+          }}
+          loading="lazy"
+        />
+      </div>
+
+      <div className="flex flex-1 flex-col gap-2 p-4 bg-[#D9D9D9]">
+        <h3 className="text-b5 font-bold text-black-01 line-clamp-3">
+          {item.title}
+        </h3>
+
+        {item.publicationDate && (
+          <p className="text-b7 text-sub-text">{item.publicationDate}</p>
+        )}
+
+        <div className="w-full h-[0.5px] bg-black"></div>
+        <div className="flex flex-col gap-1.5 text-b7 text-sub-text">
+          {item.categories && (
+            <div className="flex items-start gap-1.5">
+              <svg
+                className="mt-0.5 size-3.5 shrink-0"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 3.5A1.5 1.5 0 013.5 2h2.879a1.5 1.5 0 011.06.44l.622.621a1.5 1.5 0 001.06.439H12.5A1.5 1.5 0 0114 5v6.5a1.5 1.5 0 01-1.5 1.5h-9A1.5 1.5 0 012 11.5v-8z"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                />
+              </svg>
+              <span className="flex gap-1">
+                Categories:
+                <span className="text-b7 text-black">{categories}</span>
+              </span>
+            </div>
+          )}
+          {item.countries && (
+            <div className="flex items-start gap-1.5">
+              <svg
+                className="mt-0.5 size-3.5 shrink-0"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 1.5a4.5 4.5 0 014.5 4.5c0 3.375-4.5 8.5-4.5 8.5S3.5 9.375 3.5 6A4.5 4.5 0 018 1.5z"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                />
+                <circle
+                  cx="8"
+                  cy="6"
+                  r="1.5"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                />
+              </svg>
+              <span className="flex gap-1">
+                Countries:
+                <span className="text-b7 text-black">{countries}</span>
+              </span>
+            </div>
+          )}
+          {item.languages && (
+            <div className="flex items-start gap-1.5">
+              <svg
+                className="mt-0.5 size-3.5 shrink-0"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="6.5"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                />
+                <ellipse
+                  cx="8"
+                  cy="8"
+                  rx="3"
+                  ry="6.5"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                />
+                <path
+                  d="M1.5 8h13M2.5 4.5h11M2.5 11.5h11"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                />
+              </svg>
+              <span className="flex gap-1">
+                Languages:
+                <span className="text-b7 text-black">{languages}</span>
+              </span>
+            </div>
+          )}
+        </div>
+
+        {item.linkUrl && (
+          <a
+            href={item.linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto flex items-center justify-end gap-1 pt-2 text-b7 underline font-bold text-orange-01"
+          >
+            View the full project
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 13 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 13H1C0.734893 12.9996 0.480747 12.8942 0.293288 12.7067C0.105829 12.5193 0.000357171 12.2651 0 12V2C0.000357171 1.73489 0.105829 1.48075 0.293288 1.29329C0.480747 1.10583 0.734893 1.00036 1 1H6V2H1V12H11V7H12V12C11.9996 12.2651 11.8942 12.5193 11.7067 12.7067C11.5193 12.8942 11.2651 12.9996 11 13Z"
+                fill="#FF4700"
+              />
+              <path
+                d="M8 0V1H11.293L7 5.293L7.707 6L12 1.707V5H13V0H8Z"
+                fill="#FF4700"
+              />
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const DataCatalogClient = ({ relatedResources }: DataCatalogClientProps) => {
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string[]>
   >({
     category: [],
     country: [],
-    format: [],
+    languages: [],
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const mobileFilterRef = useRef<HTMLDivElement>(null);
-  const ITEMS_PER_PAGE = 5;
+  const ITEMS_PER_PAGE = 9;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -147,45 +210,54 @@ const DataCatalogClient = ({ datasets }: DataCatalogClientProps) => {
       {
         key: "category",
         title: "Category",
-        options: getFilterOptions(datasets, (item) => item.categories || []),
+        options: getFilterOptions(
+          relatedResources,
+          (item) => item.categories || [],
+        ),
       },
       {
         key: "country",
         title: "Country",
-        options: getFilterOptions(datasets, (item) =>
-          item.countries ? [item.countries] : [],
+        options: getFilterOptions(
+          relatedResources,
+          (item) => item.countries || [],
         ),
       },
       {
-        key: "format",
-        title: "Format",
-        options: getFilterOptions(datasets, (item) => item.dataType || []),
+        key: "languages",
+        title: "Language",
+        options: getFilterOptions(
+          relatedResources,
+          (item) => item.languages || [],
+        ),
       },
     ],
-    [datasets],
+    [relatedResources],
   );
 
-  const filteredDatasets = useMemo(() => {
-    return datasets.filter((item) => {
+  const filteredRelatedResources = useMemo(() => {
+    return relatedResources.filter((item) => {
       const categoryMatch =
         selectedFilters.category.length === 0 ||
         selectedFilters.category.some((c) => item.categories?.includes(c));
       const countryMatch =
         selectedFilters.country.length === 0 ||
-        selectedFilters.country.includes(item.countries || "");
-      const formatMatch =
-        selectedFilters.format.length === 0 ||
-        selectedFilters.format.some((f) => item.dataType?.includes(f));
-      return categoryMatch && countryMatch && formatMatch;
+        selectedFilters.country.some((c) => item.countries?.includes(c));
+      const languageMatch =
+        selectedFilters.languages.length === 0 ||
+        selectedFilters.languages.some((l) => item.languages?.includes(l));
+      return categoryMatch && countryMatch && languageMatch;
     });
-  }, [datasets, selectedFilters]);
+  }, [relatedResources, selectedFilters]);
 
-  const totalPages = Math.ceil(filteredDatasets.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(
+    filteredRelatedResources.length / ITEMS_PER_PAGE,
+  );
 
-  const paginatedDatasets = useMemo(() => {
+  const paginatedRelatedResources = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredDatasets.slice(start, start + ITEMS_PER_PAGE);
-  }, [filteredDatasets, currentPage]);
+    return filteredRelatedResources.slice(start, start + ITEMS_PER_PAGE);
+  }, [filteredRelatedResources, currentPage]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -209,7 +281,7 @@ const DataCatalogClient = ({ datasets }: DataCatalogClientProps) => {
   };
 
   const handleClearAll = () => {
-    setSelectedFilters({ category: [], country: [], format: [] });
+    setSelectedFilters({ category: [], country: [], languages: [] });
   };
 
   const allSelectedFilters = useMemo(
@@ -240,8 +312,12 @@ const DataCatalogClient = ({ datasets }: DataCatalogClientProps) => {
           id="data-catalog"
         >
           <div className="flex gap-1">
-            <h2 className="font-bold text-blue-01 text-h5">Data Catalog</h2>
-            <p className="text-b2 text-orange-02">({datasets.length})</p>
+            <h2 className="font-bold text-blue-01 text-h5">
+              Related Resources
+            </h2>
+            <p className="text-b2 text-orange-02">
+              ({relatedResources.length})
+            </p>
           </div>
           <div className="block xl:hidden">
             <div ref={mobileFilterRef}>
@@ -336,8 +412,8 @@ const DataCatalogClient = ({ datasets }: DataCatalogClientProps) => {
               </div>
             )}
           </div>
-          <div className="flex flex-col gap-4">
-            {paginatedDatasets.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-4">
+            {paginatedRelatedResources.map((item) => (
               <CatalogCard key={item.title || ""} item={item} />
             ))}
           </div>
