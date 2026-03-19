@@ -26,6 +26,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
           rel="stylesheet"
         />
+        <script
+          defer
+          data-domain="opendataforanticorruption.com"
+          src="https://analytics.punchup.world/js/script.js"
+        ></script>
       </head>
       <body className="antialiased">
         <Navbar />
