@@ -35,7 +35,7 @@ const PepsGuidePage = () => {
   return (
     <div className="flex flex-col w-full bg-white ">
       <div className="flex flex-1">
-        <div className="hidden lg:block w-0 overflow-visible">
+        <div className="hidden xl:block w-0 overflow-visible">
           <nav className="sticky top-16 flex flex-col gap-1 pl-8 pt-16">
             {sidebarLinks.map((item) => (
               <div key={item.label} className="flex flex-col">
