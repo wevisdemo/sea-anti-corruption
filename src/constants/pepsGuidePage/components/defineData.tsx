@@ -837,13 +837,22 @@ export const referencePepsData: PepCategory[] = [
         content: (
           <>
             <p>
-              The Association of Thai Securities Companies use the National
-              Anti-Corruption Commission (NACC) Position list for asset
-              declaration as a reference to identify PEPs
+              The definitions were based on Anti-Money Laundering Office
+              (AMLO)’s{" "}
+              <a
+                href="https://sed.amlo.go.th/uploads/menu/attach_202603110835_69b0c6f9521c6.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                Guidline on Political Exposed Persons
+              </a>
             </p>
 
             <p className="mt-3">
-              Ministerial Regulation on Customer Due Diligence, B.E. 2563 (2020)
+              The Association of Thai Securities Companies use the National
+              Anti-Corruption Commission (NACC) Position list for asset
+              declaration as a reference to identify PEPs
             </p>
           </>
         ),
