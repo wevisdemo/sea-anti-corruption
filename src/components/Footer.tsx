@@ -67,7 +67,7 @@ const Footer = () => {
               >
                 {section.title}
               </p>
-              <ul className="flex flex-col gap-1">
+              <ul className="flex flex-col gap-1.5">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <Link

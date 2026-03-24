@@ -23,12 +23,12 @@ const LandingPage = () => {
         />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
           <h1 className="text-h5 font-bold text-white">
-            Embrace opennes <br /> and collaboration <br /> to fight against
+            Embrace Openness <br /> and Collaboration <br /> to Fight Against
             Corruption
           </h1>
           <p className="mt-8 max-w-2xl text-h9 font-bold text-orange-02 ">
             Learn and join the open data <br />
-            for anti-corruption movement with SEA-ACN
+            for anti-corruption movement with SEA-CAN
           </p>
         </div>
       </div>

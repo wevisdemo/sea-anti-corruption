@@ -158,7 +158,7 @@ const DataCatalogClient = ({ datasets }: DataCatalogClientProps) => {
       },
       {
         key: "format",
-        title: "Format",
+        title: "Data Type",
         options: getFilterOptions(datasets, (item) => item.dataType || []),
       },
     ],

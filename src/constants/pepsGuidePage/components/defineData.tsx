@@ -83,7 +83,7 @@ export const foreignPepsData: PepCategory[] = [
     id: "domestic-peps",
     title: "Domestic PEPs",
     description:
-      "individuals who are or have been entrusted domestically with prominent public functions; for example,  heads of state  or of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.",
+      "Individuals who are or have been entrusted domestically with prominent public functions; for example,  heads of state  or of government, senior politicians, senior government, judicial or military officials, senior executives of state owned corporations, important political party officials.",
     countries: [
       {
         country: "Indonesia",
@@ -171,7 +171,7 @@ export const foreignPepsData: PepCategory[] = [
     id: "international-organization-peps",
     title: "International organization PEPs",
     description:
-      "persons who are or have been entrusted with a prominent function by an international organization, refers to members of senior management or individuals who have been entrusted with equivalent functions, i.e. directors, deputy directors and members of the board or equivalent functions.",
+      "Individual who are or have been entrusted with a prominent function by an international organization, refers to members of senior management or individuals who have been entrusted with equivalent functions, i.e. directors, deputy directors and members of the board or equivalent functions.",
     countries: [
       {
         country: "Indonesia",
@@ -228,7 +228,7 @@ export const foreignPepsData: PepCategory[] = [
     id: "family-members",
     title: "Family members",
     description:
-      "are individuals who are related to a PEP either directly (consanguinity) or through marriage or similar (civil) forms of partnership.",
+      "Individuals who are related to a PEP either directly (consanguinity) or through marriage or similar (civil) forms of partnership.",
     countries: [
       {
         country: "Indonesia",
@@ -305,7 +305,7 @@ export const foreignPepsData: PepCategory[] = [
     id: "close-associates",
     title: "Close associates",
     description:
-      "are individuals who are closely connected to a PEP, either socially or professionally.",
+      "Individuals who are closely connected to a PEP, either socially or professionally.",
     countries: [
       {
         country: "Indonesia",
@@ -853,6 +853,114 @@ export const referencePepsData: PepCategory[] = [
               The Association of Thai Securities Companies use the National
               Anti-Corruption Commission (NACC) Position list for asset
               declaration as a reference to identify PEPs
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+];
+
+export const findingPepsData: PepCategory[] = [
+  {
+    id: "finding-peps",
+    title: "Finding PEPs",
+    description: "How to find PEPs in your country.",
+    countries: [
+      {
+        country: "Indonesia",
+        content: (
+          <>
+            <p>
+              <b className="font-bold">Duration after leaving office</b>: there
+              is no single harmonized rule across agencies for how long a former
+              officeholder remains a PEPs. PPATK guidance has treated certain
+              former domestic PEPs as higher-risk for up to five years
+              post-tenure, whereas other authorities (including OJK in some
+              contexts) have used a two-year period, reflecting an inconsistency
+              that complicates operational application.
+            </p>
+            <p className="mt-3">
+              <b className="font-bold">Beneficial ownership challenges</b>:
+              detecting ultimate beneficial ownership when PEPs use nominees,
+              layered corporate structures, or proxies remains a major practical
+              challenge. POJK 8/2023 requires reporting institutions to treat
+              beneficial owners who are PEPs as high risk and to apply EDD, but
+              corporate BO reporting by companies has been incomplete
+              (regulatory reporting compliance was low, cited at ~51% as of
+              November 2025), which hampers detection.
+            </p>
+            <p className="mt-3">
+              <b className="font-bold">Data and system limitations</b>: PPATK
+              has developed an official PEPs application to assist
+              identification and monitoring, and this application is available
+              to reporting parties, law enforcement and supervisory agencies.
+              However, the application’s coverage and integration with other
+              government datasets (LHKPN asset disclosures, and BO registry) are
+              limited. Consequently, many reporting entities — especially
+              smaller banks, cooperatives, and DNFBPs — rely on commercial
+              screening tools or manual checks, and implementation across
+              non-bank sectors is uneven.
+            </p>
+
+            <p className="mt-3">
+              <b className="font-bold">DNFBPs and other sectors</b>: certain
+              designated non-financial businesses and professions (notaries,
+              lawyers, accountants, real-estate agents, dealers in high-value
+              goods, auction houses) are included as reporting parties in law
+              and guidance, but FATF and national assessments have identified
+              gaps in DNFBP compliance, for example, inconsistencies in
+              recordkeeping, risk analysis, and transaction reconstruction
+              obligations.
+            </p>
+          </>
+        ),
+      },
+      {
+        country: "Malaysia",
+        content: (
+          <>
+            <p>
+              Does not have a central database. “Reporting institutions are
+              encouraged to develop internal references or databases in
+              identifying family members or close associates of PEPs. Reporting
+              institutions may also refer to public or commercial databases and
+              supplement this with a customer’s self-declaration.” -{" "}
+              <a
+                href="https://amlcft.bnm.gov.my/faq/tfs-fi/pep"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                Bank Negara Malaysia
+              </a>
+            </p>
+            <p className="mt-3">
+              The identification of the close associates should be on a best
+              effort basis, based on information obtained and available to the
+              reporting institutions and subject to the risk assessment of the
+              reporting institution. -{" "}
+              <a
+                href="https://amlcft.bnm.gov.my/faq/tfs-fi/pep"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-orange-01 underline"
+              >
+                Bank Negara Malaysia
+              </a>
+            </p>
+          </>
+        ),
+      },
+      {
+        country: "Thailand",
+        content: (
+          <>
+            <p>
+              There is no database specifying individual names, as AMLO does not
+              provide a list of persons; instead, AMLO defines the relevant
+              positions, and the reporting entities are responsible for
+              collecting and updating information on any changes accordingly.
             </p>
           </>
         ),
