@@ -57,11 +57,18 @@ const CatalogCard = ({ item }: { item: RelatedResourcesFilter }) => {
         </h3>
 
         {item.publicationDate && (
-          <p className="text-b7 text-sub-text">{item.publicationDate}</p>
+          <p className="text-b7 text-sub-text">
+            {" "}
+            {new Date(item.publicationDate).toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </p>
         )}
 
         <div className="w-full h-[0.5px] bg-black"></div>
-        <div className="flex flex-col gap-1.5 text-b7 text-sub-text">
+        <div className="flex flex-col gap-1.5 text-b6 text-sub-text">
           {item.categories && (
             <div className="flex items-start gap-1.5">
               <svg
@@ -78,7 +85,7 @@ const CatalogCard = ({ item }: { item: RelatedResourcesFilter }) => {
               </svg>
               <span className="flex gap-1">
                 Categories:
-                <span className="text-b7 text-black">{categories}</span>
+                <span className="text-b6 text-black">{categories}</span>
               </span>
             </div>
           )}
@@ -105,7 +112,7 @@ const CatalogCard = ({ item }: { item: RelatedResourcesFilter }) => {
               </svg>
               <span className="flex gap-1">
                 Countries:
-                <span className="text-b7 text-black">{countries}</span>
+                <span className="text-b6 text-black">{countries}</span>
               </span>
             </div>
           )}
@@ -140,7 +147,7 @@ const CatalogCard = ({ item }: { item: RelatedResourcesFilter }) => {
               </svg>
               <span className="flex gap-1">
                 Languages:
-                <span className="text-b7 text-black">{languages}</span>
+                <span className="text-b6 text-black">{languages}</span>
               </span>
             </div>
           )}
@@ -151,7 +158,7 @@ const CatalogCard = ({ item }: { item: RelatedResourcesFilter }) => {
             href={item.linkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto flex items-center justify-end gap-1 pt-2 text-b7 underline font-bold text-orange-01"
+            className="mt-auto flex items-center justify-end gap-1 pt-2 text-b6 underline font-bold text-orange-01"
           >
             View the full project
             <svg
@@ -375,7 +382,7 @@ const DataCatalogClient = ({ relatedResources }: DataCatalogClientProps) => {
                   {allSelectedFilters.map((filter) => (
                     <span
                       key={`${filter.sectionKey}-${filter.value}`}
-                      className="inline-flex items-center gap-1 bg-background-01 rounded-full px-3 py-1 text-b7 text-black-01"
+                      className="inline-flex items-center gap-1 bg-background-01 rounded-full px-3 py-1 text-b6 text-black-01"
                     >
                       {filter.value}
                       <button

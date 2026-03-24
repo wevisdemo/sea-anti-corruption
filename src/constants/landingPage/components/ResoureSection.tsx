@@ -16,7 +16,7 @@ const ResoureSection = () => {
   return (
     <div
       className="flex flex-col gap-4 max-w-[776px] mx-auto md:p-8 md:mt-16 p-4 mt-2"
-      id="network-resources-&-update"
+      id="related-resources"
     >
       <div className="flex gap-1">
         <h2 className="font-bold text-blue-01 text-h5">Related Resources</h2>
@@ -49,12 +49,19 @@ const ResoureSection = () => {
 
               {resource.publicationDate && (
                 <p className="text-b7 text-sub-text">
-                  {resource.publicationDate}
+                  {new Date(resource.publicationDate).toLocaleDateString(
+                    "en-GB",
+                    {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    },
+                  )}
                 </p>
               )}
 
               <div className="w-full h-[0.5px] bg-black"></div>
-              <div className="flex flex-col gap-1.5 text-b7 text-sub-text">
+              <div className="flex flex-col gap-1.5 text-b6 text-sub-text">
                 {resource.categories && (
                   <div className="flex items-start gap-1.5">
                     <svg
@@ -71,7 +78,7 @@ const ResoureSection = () => {
                     </svg>
                     <span className="flex gap-1">
                       Categories:
-                      <span className="text-b7 text-black">
+                      <span className="text-b6 text-black">
                         {resource.categories}
                       </span>
                     </span>
@@ -100,7 +107,7 @@ const ResoureSection = () => {
                     </svg>
                     <span className="flex gap-1">
                       Countries:
-                      <span className="text-b7 text-black">
+                      <span className="text-b6 text-black">
                         {resource.countries}
                       </span>
                     </span>
@@ -137,7 +144,7 @@ const ResoureSection = () => {
                     </svg>
                     <span className="flex gap-1">
                       Languages:
-                      <span className="text-b7 text-black">
+                      <span className="text-b6 text-black">
                         {resource.languages}
                       </span>
                     </span>
@@ -150,7 +157,7 @@ const ResoureSection = () => {
                   href={resource.linkUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto flex items-center justify-end gap-1 pt-2 text-b7 underline font-bold text-orange-01"
+                  className="mt-auto flex items-center justify-end gap-1 pt-2 text-b6 underline font-bold text-orange-01"
                 >
                   View the full project
                   <svg
@@ -176,14 +183,12 @@ const ResoureSection = () => {
         ))}
       </div>
 
-      <p
+      <a
         className="text-b5 font-bold text-orange-01 text-end underline cursor-pointer"
-        onClick={() => {
-          router.push("/related-resources");
-        }}
+        href="/related-resources"
       >
         See All
-      </p>
+      </a>
     </div>
   );
 };

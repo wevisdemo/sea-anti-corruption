@@ -11,18 +11,24 @@ const footerLinks = [
     links: [
       { label: "How?", href: "/#how?" },
       { label: "Focusing Dataset", href: "/#focusing-dataset" },
-      { label: "SEA-ACN Open Data", href: "/#sea-acn-open-data" },
-      { label: "Focus Group", href: "/#focus-group" },
+      { label: "SEA-CAN Open Data", href: "/#sea-can's-open-data-focus-group" },
+      { label: "Related Resources", href: "/#related-resources" },
     ],
   },
   {
     title: "PEPs Guide",
     href: "/peps-guide",
     links: [
-      { label: "Introduction", href: "/" },
-      { label: "Defining: Who is PEPs?", href: "/" },
-      { label: "Data Standard", href: "/" },
-      { label: "What's next?", href: "/" },
+      { label: "Introduction", href: "/peps-guide#introduction" },
+      {
+        label: "Defining: Who is PEPs?",
+        href: "/peps-guide#defining:-who-is-peps?",
+      },
+      {
+        label: "Data Standard: Put PEPs Into a Structure",
+        href: "/peps-guide#data-standard:-put-peps-into-a-structure",
+      },
+      { label: "What’s Next?", href: "/peps-guide#what's-next?" },
     ],
   },
   {

@@ -29,7 +29,7 @@ const CatalogCard = ({ item }: { item: Dataset }) => (
   <div className="rounded-lg border border-background-01 overflow-hidden">
     <div className="flex flex-col gap-2 bg-background-01 px-6 pt-4 pb-2">
       <h3 className="font-bold text-black-01 text-b5">{item.title}</h3>
-      <div className="flex flex-wrap gap-x-6 gap-y-1 text-b7 text-black-01">
+      <div className="flex flex-wrap gap-x-6 gap-y-1 text-b6 text-black-01">
         <span className="flex items-center gap-1">
           <Image
             src="/icons/folder.svg"
@@ -51,7 +51,7 @@ const CatalogCard = ({ item }: { item: Dataset }) => (
           {item.dataType?.join(" , ")}
         </span>
       </div>
-      <div className="flex flex-wrap gap-x-6 gap-y-1 text-b7 text-black-01">
+      <div className="flex flex-wrap gap-x-6 gap-y-1.5 text-b6 text-black-01">
         <span className="flex items-center gap-1">
           <Image
             src="/icons/publisher.svg"
@@ -85,7 +85,7 @@ const CatalogCard = ({ item }: { item: Dataset }) => (
       </div>
     </div>
     <div className="border-t border-background-01 p-4 flex flex-col gap-3">
-      <p className="text-b7 text-black-01">{item.description}</p>
+      <p className="text-b6 text-black-01">{item.description}</p>
       <Link
         href={item.url || ""}
         target="_blank"

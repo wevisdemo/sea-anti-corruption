@@ -5,11 +5,11 @@ const DataSection = () => {
   return (
     <div
       className="flex flex-col gap-2.5 max-w-[776px] mx-auto md:p-8 md:mt-8 p-4 mt-2"
-      id="data-standard"
+      id="data-standard:-put-peps-into-a-structure"
     >
       <div className="flex flex-col gap-4">
         <h2 className="font-bold text-blue-01 text-h5">
-          Data Standard: Put PEPs into a structure
+          Data Standard: Put PEPs Into a Structure
         </h2>
         <p className="text-b5 text-black-01">
           After we know who should be considered as PEPs, we can start

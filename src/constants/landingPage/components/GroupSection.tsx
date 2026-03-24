@@ -14,7 +14,7 @@ const GroupSection = () => {
   return (
     <div
       className="flex flex-col gap-4 max-w-[776px] md:p-8 md:mt-16 p-4 mt-2"
-      id="sea-acn-open-data-focus-group"
+      id="sea-can's-open-data-focus-group"
     >
       <h2 className="font-bold text-blue-01 text-h5">
         SEA-CAN's Open Data Focus Group

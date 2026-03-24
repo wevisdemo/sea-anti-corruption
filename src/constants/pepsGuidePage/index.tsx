@@ -21,11 +21,10 @@ const sidebarLinks: SidebarItem[] = [
     ],
   },
   {
-    label: "Data Standard",
+    label: "Data Standard: Put PEPs Into a Structure",
     children: ["Person", "Organization", "Post", "Membership"],
   },
   { label: "What's next?" },
-  { label: "Network resources and updates" },
 ];
 
 const toAnchor = (text: string) =>

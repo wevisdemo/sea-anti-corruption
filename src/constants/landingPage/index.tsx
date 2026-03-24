@@ -7,8 +7,8 @@ import ResoureSection from "./components/ResoureSection";
 const sidebarLinks = [
   "How?",
   "Focusing Dataset",
-  "SEA-ACN Open Data Focus Group",
-  "Network Resources & Update",
+  "SEA-CAN's Open Data Focus Group",
+  "Related Resources",
 ];
 
 const LandingPage = () => {
