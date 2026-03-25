@@ -138,7 +138,7 @@ const GroupSection = () => {
             <p className="text-b7 font-bold text-sub-text text-center">
               TI
               <br />
-              (Thailand)
+              (Indonesia)
             </p>
           </div>
         </div>
