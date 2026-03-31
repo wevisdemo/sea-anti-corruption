@@ -40,7 +40,7 @@ const PepsGuidePage = () => {
               <div key={item.label} className="flex flex-col">
                 <a
                   href={toAnchor(item.label)}
-                  className="whitespace-nowrap text-black-01 text-b5 font-bold w-fit hover:bg-blue-04 py-1 px-2"
+                  className=" text-black-01 text-b5 font-bold w-2xs hover:bg-blue-04 py-1 px-2"
                 >
                   {item.label}
                 </a>
